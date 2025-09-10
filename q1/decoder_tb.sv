@@ -1,14 +1,19 @@
-module decoder_tb;
+module decoder_tb();
 
-  // Testbench signals
-  logic [3:0] binary;
-  logic [15:0] one_hot;
+logic [3:0] in = 0;
+logic [15:0] out;
+decoder UUT(.binary(in), .one_hot(out));
 
-  // Instantiate the decoder module
-  decoder uut (
-    .binary(binary),
-    .one_hot(one_hot)
-  );
+initial begin
+  #10;
+  in = 5;
+  #10;
 
-  // Complete your testbench here
+  in = 7;
+  #10;
+
+  in = 11;
+  #10;
+end
+
 endmodule
